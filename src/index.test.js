@@ -50,7 +50,7 @@ describe('<HotelRow/>', () => {
 describe('<HotelTable/>', () => {
   let table;
   beforeEach(() => {
-    table = mount(<HotelTable hotels={[{StarRating:2, Name: 'hotelone', Facilities: ['car park', 'pool']},{StarRating:3, Name: 'hoteltwo', Facilities: ['pool']},{StarRating:4, Name: 'hotelthree', Facilities: []}]}  />)
+    table = mount(<HotelTable hotels={[{StarRating:2, Name: 'hotelone', Facilities: ['car park', 'pool']},{StarRating:3, Name: 'hoteltwo', Facilities: ['pool']},{StarRating:4, Name: 'hotelthree', Facilities: []}]} selectedFacilities={['car park']}  />)
   });
 
   it('should find wrapper element', () => {
@@ -62,6 +62,12 @@ describe('<HotelTable/>', () => {
   it('display hotel rows', () => {
 
     expect(table.find(HotelRow)).to.have.length(3);
+
+  });
+
+  it('should displayed filtered hotels by selected facilities', () => {
+
+    expect(table.find(HotelRow)).to.have.length(1);
 
   });
 
