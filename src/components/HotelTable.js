@@ -1,5 +1,6 @@
 import React from 'react';
 import HotelRow from './HotelRow';
+import PropTypes from 'prop-types';
 
 class HotelTable extends React.Component {
   render() {
@@ -36,5 +37,10 @@ class HotelTable extends React.Component {
     );
   }
 }
+
+HotelTable.propTypes = {
+  hotels: PropTypes.array,
+  selectedFacilities: PropTypes.array
+};
 
 export default HotelTable;

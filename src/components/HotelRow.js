@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const HotelRow = (props) => {
 
@@ -12,6 +13,10 @@ const HotelRow = (props) => {
       <div className="facilities">{hotelFacilities}</div>
     </div>
   );
+};
+
+HotelRow.propTypes = {
+  hotel: PropTypes.object
 };
 
 export default HotelRow;

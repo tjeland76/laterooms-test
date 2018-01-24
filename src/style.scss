@@ -1,0 +1,95 @@
+body {
+  padding: 5px
+}
+
+.app {
+  width:50%;
+  background-color:#ccc;
+  padding:10px 20px;
+}
+
+.filters {
+  width:100%;
+  background-color:#f1f1f1;
+  border-radius:5px;
+  > div {
+    padding:5px 10px;
+    &.filtersHeader {
+      font-size:18px;
+      font-weight:bold;
+    }
+    &.filtersRow {
+      font-size:18px;
+    }
+    input {
+      margin:0 10px;
+    }
+  }
+}
+
+.hotelsContainer {
+  display:table;
+  width:100%;
+  > div {
+    display:table-row;
+    height:40px;
+    &:nth-child(even)  {
+      background-color:#f1f1f1;
+    }
+    &:nth-child(odd)  {
+      background-color:#fff;
+    }
+    >div {
+      display:table-cell;
+      padding:0 20px;
+      &.hotelName {
+        line-height:40px;
+        width:30%;
+        font-size:20px;
+        font-weight:bold;
+      }
+      &.starRating {
+        width:30%;
+      }
+    }
+  }
+}
+
+.sortRow {
+  height:40px;
+  line-height:40px;
+  width: 100%;
+  display: table;
+  > div {
+    display:table-cell;
+    cursor:pointer;
+    font-weight:bold;
+    &.spacer{
+      width:30%;
+    }
+    padding:0 20px;
+  }
+}
+
+.ascendingLabel, .descendingLabel {
+  display:none;
+  padding:0 5px;
+}
+
+.asc {
+  .ascendingLabel {
+    display:none;
+  }
+  .descendingLabel {
+    display:inline-block;
+  }
+}
+
+.desc {
+  .ascendingLabel {
+    display:inline-block;
+  }
+  .descendingLabel {
+    display:none;
+  }
+}
