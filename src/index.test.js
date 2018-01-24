@@ -50,7 +50,7 @@ describe('<HotelRow/>', () => {
 describe('<HotelTable/>', () => {
   let table;
   beforeEach(() => {
-    table = mount(<HotelTable hotels={[{StarRating:2, Name: 'hotelone', Facilities: ['car park', 'pool']},{StarRating:3, Name: 'hoteltwo', Facilities: ['pool']},{StarRating:4, Name: 'hotelthree', Facilities: []}]} selectedFacilities={['car park']}  />)
+    table = shallow(<HotelTable hotels={[{StarRating:2, Name: 'hotelone', Facilities: ['car park', 'pool']},{StarRating:3, Name: 'hoteltwo', Facilities: ['pool']},{StarRating:4, Name: 'hotelthree', Facilities: []}]} selectedFacilities={['car park']}  />)
   });
 
   it('should find wrapper element', () => {
@@ -59,15 +59,21 @@ describe('<HotelTable/>', () => {
 
   });
 
-  it('display hotel rows', () => {
+  it('should displayed filtered hotels by selected facilities', () => {
 
+    expect(table.find(HotelRow)).to.have.length(1);
+
+  });
+
+  it('should clear facilities and show all hotels', () => {
+    table.setProps({ selectedFacilities: []} );
     expect(table.find(HotelRow)).to.have.length(3);
 
   });
 
-  it('should displayed filtered hotels by selected facilities', () => {
-
-    expect(table.find(HotelRow)).to.have.length(1);
+  it('should amend facilities and show correct hotels', () => {
+    table.setProps({ selectedFacilities: ['pool']} );
+    expect(table.find(HotelRow)).to.have.length(2);
 
   });
 
