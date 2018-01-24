@@ -50,12 +50,18 @@ describe('<HotelRow/>', () => {
 describe('<HotelTable/>', () => {
   let table;
   beforeEach(() => {
-    table = shallow(<HotelTable/>)
+    table = mount(<HotelTable hotels={[{StarRating:2, Name: 'hotelone', Facilities: ['car park', 'pool']},{StarRating:3, Name: 'hoteltwo', Facilities: ['pool']},{StarRating:4, Name: 'hotelthree', Facilities: []}]}  />)
   });
 
   it('should find wrapper element', () => {
 
     expect(table.find('.hotelsContainer')).to.have.length(1);
+
+  });
+
+  it('display hotel rows', () => {
+
+    expect(table.find(HotelRow)).to.have.length(3);
 
   });
 
