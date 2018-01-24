@@ -34,4 +34,13 @@ describe('<HotelRow/>', () => {
 
   });
 
+  it('should amend hotel fields and see changes reflected', () => {
+    row.setProps({ hotel: {StarRating:4, Name: 'change name', Facilities: ['gym', 'pool']} });
+    expect(row.find('.hotelName').text()).to.not.equal('hotelone');
+    expect(row.find('.hotelName').text()).to.equal('change name');
+    expect(row.find('.starRating').text()).to.equal('4 Star');
+    expect(row.find('.facilities').text()).to.equal('gym, pool');
+
+  });
+
 });
