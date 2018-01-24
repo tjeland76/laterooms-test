@@ -8,7 +8,8 @@ import React from 'react';
 import {expect} from 'chai';
 import { shallow, mount } from 'enzyme';
 
-import HotelRow from './components/HotelRow'
+import HotelRow from './components/HotelRow';
+import HotelTable from './components/HotelTable';
 
 describe('<HotelRow/>', () => {
   let row;
@@ -40,6 +41,21 @@ describe('<HotelRow/>', () => {
     expect(row.find('.hotelName').text()).to.equal('change name');
     expect(row.find('.starRating').text()).to.equal('4 Star');
     expect(row.find('.facilities').text()).to.equal('gym, pool');
+
+  });
+
+});
+
+
+describe('<HotelTable/>', () => {
+  let table;
+  beforeEach(() => {
+    table = shallow(<HotelTable/>)
+  });
+
+  it('should find wrapper element', () => {
+
+    expect(table.find('.hotelsContainer')).to.have.length(1);
 
   });
 
